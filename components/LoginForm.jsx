@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function LoginForm() {
 
@@ -28,7 +29,8 @@ export default function LoginForm() {
                 setError("Invalid Credentials");
                 return;
             }
-
+            
+            toast.success("Login successfull")
             router.replace("dashboard");
         } catch (error) {
             console.log(error)

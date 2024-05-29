@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function RegisterForm() {
     const [name, setName] = useState("");
@@ -49,6 +50,7 @@ export default function RegisterForm() {
             if(res.ok) {
                 const form = e.target;
                 form.reset();
+                toast.success("Register Successfull")
                 router.push("/");
             } else {
                 console.log("User registration failed.");
